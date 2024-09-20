@@ -12,7 +12,6 @@ import Button from '@/components/Button'
 import { useMask } from '@react-input/mask';
 import { useRouter } from 'next/navigation';
 import { WithAuth } from '@/HOCs/WithAuth'
-import SelectBank from '@/components/SelectBank'
 
 function Home() {
     const { user, userDB, setUserData, setUserSuccess, select3, setSelect3, isSelect3, setIsSelect3, isSelect4, setIsSelect4, image1, setImage1, image2, setImage2, image3, transferencia, countries, setCountries, modal, setModal } = useUser()

@@ -215,7 +215,7 @@ function Home() {
                     <SelectBank name="nombre de banco" propHandlerIsSelect={handlerIsSelect5} propIsSelect={isSelect5} operation="envio" click={handlerBankSelect2} arr={countries[userDB.cca3].countries !== undefined ? Object.values(countries[userDB.cca3].countries) : []} />
                 </div>
                 <div className=' space-y-5 max-w-[380px]'>
-                    <Label htmlFor="">Numero de tu cuenta bancaria de transferencia</Label>
+                    <Label htmlFor="">Numero de tu cuenta bancaria</Label>
                     <Input type="text" name="cuenta bancaria" onChange={onChangeHandler} required />
                 </div>
 
@@ -235,32 +235,30 @@ function Home() {
                 <Label htmlFor="">Titular de banco de transferencia</Label>
                 <Input type="text" name="titular de banco" onChange={onChangeHandler} required />
             </div> */}
-                <div className='bg-white  col-span-2  lg:grid lg:grid-cols-2 lg:gap-5 p-5 place-items-center'>
-                    {<div className='text-center w-full col-span-2 bg-gray-800 text-white py-5' >
+                <div className='bg-white  col-span-2  lg:grid lg:grid-cols-2 lg:gap-5 p-1 lg:p-5 place-items-center'>
+                    {<div className='text-center w-full col-span-2 bg-gray-800 text-white py-5 mb-5' >
                         EFECTUAR TRANSACCION 
                         {/* verifique sus datos de transaccion a continuación oprima Verificar Transacción */}
                     </div>}
                     {/* {destinatario !== undefined && destinatario['banco de transferencia'] !== undefined &&  */}
                     <div className=' space-y-5'>
                         {/* <Label htmlFor="">QR bancario para el deposito</Label> */}
+                        
+                        <div className=' space-y-5'>
+                            <SelectBank name="nombre de banco" propHandlerIsSelect={handlerIsSelect4} bg='bg-gray-800' propIsSelect={isSelect4} operation="envio" click={handlerBankSelect} arr={countries[userDB.cca3].countries !== undefined ? Object.values(countries[userDB.cca3].countries) : []} />
+                        </div>
                         <Link href='#' className="w-full flex flex-col justify-center items-center" download >
-                            <label className=" flex flex-col justify-start items-center w-[300px] min-h-[300px] h-auto bg-white border border-gray-300 text-gray-900 text-[12px]  focus:ring-blue-500 focus:border-blue-500 rounded-[10px]" >
+                            <label className="relative flex flex-col justify-start items-center w-[300px] min-h-[300px] h-auto bg-white border border-gray-300 text-gray-900 text-[12px]  focus:ring-blue-500 focus:border-blue-500 rounded-[10px]" >
                                 {destinatario?.['banco de transferencia'] && countries && countries[userDB.cca3] && countries[userDB.cca3].countries !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']] !== undefined
                                     ? <img className=" flex justify-center items-center w-[300px] min-h-[300px] h-auto bg-white border border-gray-300 text-gray-900 text-[12px]  focus:ring-blue-500 focus:border-blue-500 rounded-[10px]" style={{ objectPosition: 'center' }} src={countries[userDB.cca3].countries[destinatario['banco de transferencia']] !== undefined ? countries[userDB.cca3].countries[destinatario['banco de transferencia']].qrURL : ''} alt="" />
-                                    : 'QR no disponible'}
-                                {destinatario && destinatario.importe} {destinatario && destinatario['divisa de envio']}
+                                    : <p className='relative h-full text-[12px] w-full p-5 text-center top-0 bottom-0 my-auto'>Selecciona uno de nuestros bancos para obtener un QR y efectuar su transferencia</p>}
+                                {countries?.[userDB.cca3]?.countries?.[destinatario?.['banco de transferencia']] !== undefined && destinatario && destinatario.importe}
+                                 {countries?.[userDB.cca3]?.countries?.[destinatario?.['banco de transferencia']] !== undefined &&destinatario && destinatario['divisa de envio']}
                             </label>
                         </Link>
-                        {destinatario?.['banco de transferencia'] && <span className="block text-black text-center" >Cta. {countries && countries !== undefined && countries[userDB.cca3] !== undefined && countries[userDB.cca3].countries !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']] !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']]['cta bancaria']} <br />
+                        {countries?.[userDB.cca3]?.countries?.[destinatario?.['banco de transferencia']] !== undefined && <span className="block text-black text-center" >Cta. {countries && countries !== undefined && countries[userDB.cca3] !== undefined && countries[userDB.cca3].countries !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']] !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']]['cta bancaria']} <br />
                             {destinatario !== undefined && destinatario['banco de transferencia'] !== undefined && countries && countries !== undefined && countries[userDB.cca3] !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']] !== undefined && countries[userDB.cca3].countries[destinatario['banco de transferencia']].banco}
                         </span>}
-
-                        <div className=' space-y-5'>
-                            <Label htmlFor="">Elige una banco para deposito QR</Label>
-                            <SelectBank name="nombre de banco" propHandlerIsSelect={handlerIsSelect4} propIsSelect={isSelect4} operation="envio" click={handlerBankSelect} arr={countries[userDB.cca3].countries !== undefined ? Object.values(countries[userDB.cca3].countries) : []} />
-                        </div>
-
-
                     </div>
 
                     <div className='lg:hidden'>
