@@ -194,7 +194,7 @@ function Page() {
             <span className='text-[#FFF500] text-[14px]'>Divisa de receptor:</span>
             <SelectWithFlag value={true} propHandlerSelect={handlerSelect2} propSelect={select2} propHandlerIsSelect={handlerIsSelect2} propIsSelect={isSelect2} />
             <Button theme='Primary'>Efectuar transferencia</Button >
-
+         
 
             <div className="">
               <div className='grid grid-cols-2 gap-[15px]'>
